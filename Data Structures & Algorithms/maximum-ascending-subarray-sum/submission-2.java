@@ -1,0 +1,27 @@
+class Solution {
+    public boolean isAsc(int[] nums){
+        for(int i=0; i<nums.length-1; i++){
+            if(nums[i] < nums[i+1]){
+                return true;
+            }
+        }
+        return false;
+    }
+    public int maxAscendingSum(int[] nums) {
+        int Maxsum = Integer.MIN_VALUE;
+        for(int i=0; i<nums.length; i++){
+            for(int j=i; j<nums.length; j++){
+                int sum = 0; 
+                for(int k=i; k<=j ; k++){
+                    if(isASC(nums)){
+                        sum+=nums[k];
+                    }
+                }
+                if(sum > Maxsum){
+                    Maxsum = sum;
+                }
+            }
+        }
+        return Maxsum;
+    }
+}
